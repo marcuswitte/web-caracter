@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Definição do conjunto de caracteres e da viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título da página -->
+    <title>Contador de Caracteres</title>
+    <!-- Inclusão do arquivo de estilos CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Pré-conexão com o Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <!-- Inclusão das fontes Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&#x26;family=Montserrat:ital,wght@0,100..900;1,100..900&#x26;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&#x26;display=swap" rel="stylesheet">
+  </head>
+    <header>
+      <!-- Título principal -->
+      <h1 id="jumpingText" class="jumping-text">Contador de Caracteres</h1>
+      <h1 id="fixedText">Contador de Caracteres</h1>
+    </header>
+    <body>
+      <div id="content-wrapper">
+        <textarea id="textInput" oninput="countCharacters()"></textarea>
+        <div id="charCount">Número de caracteres: 0</div>
+      </div>
+    </body>
+    <footer>
+      <p>&copy;2024 Marcus Witte</p>
+    </footer>
+    <script>
+    // Obtém o texto do elemento h1
+    const text = document.getElementById("jumpingText").innerText;
+
+    // Divide o texto em uma array de letras
+    const letters = text.split("");
+
+    // Cria uma nova array para armazenar as letras com as tags span
+    const jumpingLetters = letters.map((letter, index) => {
+        if (letter === " ") {
+            return "<span>&nbsp;</span>"; // Adiciona um espaço se a letra for um espaço em branco
+        } else {
+            const delay = index * 0.1 + "s"; // Define o atraso com base no índice da letra
+            return `<span class="jumping-letter" style="animation-delay: ${delay}">${letter}</span>`;
+        }
+    });
+
+    // Substitui o texto original pelo texto com letras pulando
+    document.getElementById("jumpingText").innerHTML = jumpingLetters.join("");
+    
+      function countCharacters() {
+          var text = document.getElementById("textInput").value;
+          var charCount = text.length;
+          document.getElementById("charCount").textContent = "Número de caracteres: " + charCount;
+      }
+    </script>
+  </body>
+</html>

@@ -10,6 +10,11 @@ h1 {
   animation: jump 1s infinite alternate;
 }
 
+#textInput {
+  width: 50%;
+  height: 50px;
+}
+
 p {
   z-index: 10;
   text-align: center;
@@ -57,7 +62,7 @@ html {
 #charCount {
   font-size: 16px;
   color: white;
-  margin-top: 10px;
+  margin: 10px;
   font-weight: bold;
   text-align: center;
   transition: color 0.3s ease-in-out;
@@ -84,6 +89,24 @@ html {
   #jumpingText {
       display: none;
   }
+}
+
+.button {
+  display: inline-block;
+  padding: 5px;
+  margin: 0;
+  width: 100px;
+  text-decoration: none;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 15px;
+}
+.button:hover {
+  background-color: darkred;
 }
 
 /*# sourceMappingURL=styles.css.map */
